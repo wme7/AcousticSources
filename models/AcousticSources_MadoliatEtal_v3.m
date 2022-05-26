@@ -13,10 +13,11 @@
 %     strength estimation using inverse method." Applied Acoustics 113
 %     (2016): 210-220.   
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+clear; close all;
 
 % Load 
-addpath ./third_party/ % third-party tools
-addpath ./functions/ % sensors and ploting functions
+addpath ../third_party/ % third-party tools
+addpath ../functions/ % sensors and ploting functions
 
 % Wave number
 k = 9; % defines: k = 2*pi/lambda
@@ -42,10 +43,17 @@ beta = asin(sin(theta).*cos(psi));
 p_monopole  = exp(1i*k*r)./(4*pi*r);
 p_dipole    = exp(1i*k*r)./(4*pi*r) .* ((1i*k*r-1)./r) .* cos(theta);
 p_quadrupole_long = exp(1i*k*r)./(4*pi.*r.^3) .* ( (3-3*1i*k*r-k*k.*r.^2) .* cos(theta).^2 + 1 - 1i*k*r);
-p_quadrupole_latr = exp(1i*k*r)./(4*pi.*r.^3) .* (3-3*1i*k*r-k*k.*r.^2) .* sin(2*theta) .* cos(beta);
+p_quadrupole_latr = exp(1i*k*r)./(4*pi.*r.^3) .* (3-3*1i*k*r-k*k.*r.^2) .* cos(theta) .* cos(beta);
 
-%% Visualization
-figure(1); isosurface(x,y,z,real(p_monopole)); title('monopole'); alpha(0.5);
-figure(2); isosurface(x,y,z,real(p_dipole)); title('dipole'); alpha(0.5);
-figure(3); isosurface(x,y,z,real(p_quadrupole_long)); title('quadrupole - longitudinal'); alpha(0.5);
-figure(4); isosurface(x,y,z,real(p_quadrupole_latr)); title('quadrupole - lateral'); alpha(0.5);
+%% Visualization 2d
+figure(1); colormap whitejet; plot_source2d(x,y,z, real(p_monopole) , 'Monopole' );
+figure(2); colormap whitejet; plot_source2d(x,y,z,  real(p_dipole)  ,  ' Dipole'  );
+figure(3); colormap whitejet; plot_source2d(x,y,z,real(p_quadrupole_long),' Quadrupole');
+figure(4); colormap whitejet; plot_source2d(x,y,z,real(p_quadrupole_latr),' Quadrupole');
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% NOTE: Sadly the source definitions proposed by Madoliat et al (2016) are
+% only valid in frequecy space. Furthermore, the lateral quadrupole is not
+% satisfactory. (I think there is a mistake/typo). I'll comeback in the
+% future to revise these definitions. MD 05/2022.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
