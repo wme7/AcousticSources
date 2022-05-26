@@ -1,9 +1,27 @@
-% Monopole, Dipole and Quadrupoles
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%              Monopole, Dipole and Quadrupoles Generator v2.0
+%
+%          by Manuel A. Diaz @ Univ-Poitiers | Pprime - 24.05.2022
+% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Based on:
+% [1] Howe, Michael S. Theory of vortex sound. No.33. 
+%     Cambridge university press, 2003. 
+% [2] Madoliat, Reza, Nowrouz Mohammad Nouri, and Ali Rahrovi.
+%     "Equalization of acoustic source using multi-pole sources and source
+%     strength estimation using inverse method." Applied Acoustics 113
+%     (2016): 210-220.   
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-% Parameters
+% Load 
+addpath ./third_party/ % third-party tools
+addpath ./functions/ % sensors and ploting functions
+
+% Control Parameters
 PLOT3d = false;
 
-% Media
+% Media Properties
 c0 = 1.0;
 
 % Source location
