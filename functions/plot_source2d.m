@@ -2,13 +2,14 @@ function plot_source2d(varargin)
 % Produce a visualization of the field in the (x,y)-plane
 
 switch nargin
-    case 5
+    case 6
         % Expected Inputs
         x = varargin{1};
         y = varargin{2};
         z = varargin{3};
         field = varargin{4};
         name = varargin{5};
+        range = varargin{6};
 
         % Get field size
         [~,~,nz] = size(field); 
@@ -22,14 +23,13 @@ switch nargin
         title(name,'Interpreter','latex');
         xlabel('$x_1$','Interpreter','latex'); 
         ylabel('$x_2$','Interpreter','latex');
-        switch name
-            case 'Monopole'  , caxis([-0.4,0.4]);
-            case 'Dipole'    , caxis([-0.3,0.3]);
-            case 'Quadrupole', caxis([-0.2,0.2]);
-            otherwise, caxis([-1.0,1.0]);
+        if not(isempty(range))
+            caxis(range);
+        else
+            caxis([-1.0,1.0]);
         end
 
-    case 10
+    case 11
         % Expected Inputs
         x = varargin{1};
         y = varargin{2};
@@ -41,6 +41,7 @@ switch nargin
         T_s = varargin{8};
         field_s = varargin{9};
         name = varargin{10};
+        range = varargin{11};
 
         % Get field size
         [~,~,nz] = size(field); 
@@ -56,11 +57,10 @@ switch nargin
             title(name,'Interpreter','latex');
             xlabel('$x_1$','Interpreter','latex'); 
             ylabel('$x_2$','Interpreter','latex');
-            switch name
-                case 'Monopole'  , caxis([-0.4,0.4]);
-                case 'Dipole'    , caxis([-0.3,0.3]);
-                case 'Quadrupole', caxis([-0.2,0.2]);
-                otherwise, caxis([-1.0,1.0]);
+            if not(isempty(range))
+                caxis(range);
+            else
+                caxis([-1.0,1.0]);
             end
         subplot(223)
             imagesc(field_s);

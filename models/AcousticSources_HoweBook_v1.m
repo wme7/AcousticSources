@@ -85,11 +85,11 @@ for i = 1:Nt
 end
 
 %% Visualization 2d
-figure(1); colormap whitejet; plot_source2d(x,y,z, p_monopole ,xs,ys,zs,Ts, ps_monopole , 'Monopole' );
-figure(2); colormap whitejet; plot_source2d(x,y,z,  p_dipole  ,xs,ys,zs,Ts,  ps_dipole  ,  'Dipole'  );
-figure(3); colormap whitejet; plot_source2d(x,y,z,p_quadrupole,xs,ys,zs,Ts,ps_quadrupole,'Quadrupole');
+figure(1); colormap whitejet; plot_source2d(x,y,z, p_monopole ,xs,ys,zs,Ts, ps_monopole , 'Monopole' ,[-0.2,0.2]);
+figure(2); colormap whitejet; plot_source2d(x,y,z,  p_dipole  ,xs,ys,zs,Ts,  ps_dipole  ,  'Dipole'  ,[-0.2,0.2]);
+figure(3); colormap whitejet; plot_source2d(x,y,z,p_quadrupole,xs,ys,zs,Ts,ps_quadrupole,'Quadrupole',[-0.2,0.2]);
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % NOTE: I'm using this snippet as an exact solution to build the true
-%       acoustic sources by physical components.
+%       acoustic sources by physical components. MD 05/2022.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

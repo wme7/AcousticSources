@@ -46,10 +46,10 @@ p_quadrupole_long = exp(1i*k*r)./(4*pi.*r.^3) .* ( (3-3*1i*k*r-k*k.*r.^2) .* cos
 p_quadrupole_latr = exp(1i*k*r)./(4*pi.*r.^3) .* (3-3*1i*k*r-k*k.*r.^2) .* cos(theta) .* cos(beta);
 
 %% Visualization 2d
-figure(1); colormap whitejet; plot_source2d(x,y,z, real(p_monopole) , 'Monopole' );
-figure(2); colormap whitejet; plot_source2d(x,y,z,  real(p_dipole)  ,  ' Dipole'  );
-figure(3); colormap whitejet; plot_source2d(x,y,z,real(p_quadrupole_long),' Quadrupole');
-figure(4); colormap whitejet; plot_source2d(x,y,z,real(p_quadrupole_latr),' Quadrupole');
+figure(1); colormap whitejet; plot_source2d(x,y,z, real(p_monopole) , 'Monopole' ,[-0.2,0.2]);
+figure(2); colormap whitejet; plot_source2d(x,y,z,  real(p_dipole)  ,  'Dipole'  ,[-0.6,0.6]);
+figure(3); colormap whitejet; plot_source2d(x,y,z,real(p_quadrupole_long),'Quadrupole Longitudinal',[-2.4,2.4]);
+figure(4); colormap whitejet; plot_source2d(x,y,z,real(p_quadrupole_latr),'Quadrupole Lateral',[-2.4,2.4]);
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % NOTE: Sadly the source definitions proposed by Madoliat et al (2016) are
