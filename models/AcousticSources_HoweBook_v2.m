@@ -39,7 +39,7 @@ psi_monopole = @(r,t) -Q(t-r/c0)./(4*pi*r);
 % Dipolar Functions (the most general formulation)
 % Ref [1], Eq. 1.7.4, using direct integration of convolution
 Ax=1.0;
-Ay=0.0;
+Ay=1.0;
 Az=0.0;
 F_1=@(t) Ax*sin(2*pi*t);  dF_1=@(t) Ax*cos(2*pi*t);
 F_2=@(t) Ay*sin(2*pi*t);  dF_2=@(t) Ay*cos(2*pi*t);

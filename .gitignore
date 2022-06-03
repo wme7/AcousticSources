@@ -52,5 +52,5 @@ Mkfile.old
 dkms.conf
 
 # Matlab autosave files & binaries
-*.svp
+*.asv
 *.mat
