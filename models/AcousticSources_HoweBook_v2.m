@@ -110,9 +110,14 @@ for i = 1:Nt
 end
 
 %% Visualization 2d
-figure(1); colormap whitejet; plot_source2d(x,y,z, p_monopole ,xs,ys,zs,Ts, ps_monopole , 'Monopole' ,[-0.2,0.2]);
-figure(2); colormap whitejet; plot_source2d(x,y,z,  p_dipole  ,xs,ys,zs,Ts,  ps_dipole  ,  'Dipole'  ,[-0.2,0.2]);
-figure(3); colormap whitejet; plot_source2d(x,y,z,p_quadrupole,xs,ys,zs,Ts,ps_quadrupole,'Quadrupole',[-0.2,0.2]);
+figPath = '../figures/';
+F1=figure(1); colormap whitejet; plot_source2d(x,y,z, p_monopole ,xs,ys,zs,Ts, ps_monopole , 'Monopole' ,[-0.2,0.2]);
+F2=figure(2); colormap whitejet; plot_source2d(x,y,z,  p_dipole  ,xs,ys,zs,Ts,  ps_dipole  ,  'Dipole'  ,[-0.2,0.2]);
+F3=figure(3); colormap whitejet; plot_source2d(x,y,z,p_quadrupole,xs,ys,zs,Ts,ps_quadrupole,'Quadrupole',[-0.2,0.2]);
+
+print(F1,[figPath,'directivity_monopole'],'-dpng');
+print(F2,[figPath,'directivity_dipole'],'-dpng');
+print(F2,[figPath,'directivity_quadrupole'],'-dpng');
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % NOTE: These are the most general formulations of the acoustic sources I
