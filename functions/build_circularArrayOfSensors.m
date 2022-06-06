@@ -24,7 +24,7 @@ function [x_i,y_i,z_i,theta_i] = build_circularArrayOfSensors(varargin)
             disp('[xS,yS,zS] = build_circularArrayOfSensors(x0,y0,z0,Radius,nSensors)')
             disp('[xS,yS,zS] = build_circularArrayOfSensors(x0,y0,z0,Radius,nSensors,yaw,pitch,roll)')
     end
-    theta_i = 0:2*pi/nSensors:2*pi;
+    theta_i = -pi+(2*pi/nSensors)*(0:nSensors);
     % Sensors in a reference plane
     x_i = radius * cos(theta_i);
     y_i = radius * sin(theta_i);
