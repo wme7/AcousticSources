@@ -51,9 +51,9 @@ psi_dipole = @(x1,x2,x3,r,t) 1./(4*pi*c0*r.^3) .* (...
 
 % Lateral Quadrupole Functions (the most general formulation)
 % Ref [1], Eq. 1.7.4, using direct integration of convolution
-A11=0.0; A12=1.0; A13=1.0;
-A21=1.0; A22=0.0; A23=1.0;
-A31=1.0; A32=1.0; A33=0.0;
+A11=1.0; A12=1.0; A13=0.0;
+A21=1.0; A22=0.0; A23=0.0;
+A31=0.0; A32=0.0; A33=0.0;
   T_11=@(t)  A11*sin(2*pi*t);   T_12=@(t)  A12*sin(2*pi*t);   T_13=@(t)  A13*sin(2*pi*t);
   T_21=@(t)  A21*sin(2*pi*t);   T_22=@(t)  A22*sin(2*pi*t);   T_23=@(t)  A23*sin(2*pi*t);
   T_31=@(t)  A31*sin(2*pi*t);   T_32=@(t)  A32*sin(2*pi*t);   T_33=@(t)  A33*sin(2*pi*t);
@@ -115,9 +115,9 @@ F1=figure(1); colormap whitejet; plot_source2d(x,y,z, p_monopole ,xs,ys,zs,Ts, p
 F2=figure(2); colormap whitejet; plot_source2d(x,y,z,  p_dipole  ,xs,ys,zs,Ts,  ps_dipole  ,  'Dipole'  ,[-0.2,0.2]);
 F3=figure(3); colormap whitejet; plot_source2d(x,y,z,p_quadrupole,xs,ys,zs,Ts,ps_quadrupole,'Quadrupole',[-0.2,0.2]);
 
-print(F1,[figPath,'directivity_monopole'],'-dpng');
-print(F2,[figPath,'directivity_dipole'],'-dpng');
-print(F2,[figPath,'directivity_quadrupole'],'-dpng');
+print(F1,[figPath,'directivity_RMS_monopole'],'-dpng');
+print(F2,[figPath,'directivity_RMS_dipole'],'-dpng');
+print(F3,[figPath,'directivity_RMS_quadrupole'],'-dpng');
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % NOTE: These are the most general formulations of the acoustic sources I

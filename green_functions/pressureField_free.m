@@ -82,8 +82,8 @@ for i=1:nSensors
     array2 = Kernel2(x1(i),x2(i),x3(i),y1,y2,y3);
     
     % Visualize fields
-    figure(1); slice(y1,y2,y3,real(array1),[],0,0); shading interp;
-    figure(2); slice(y1,y2,y3,real(array2),[],0,0); shading interp;
+    F1=figure(1); slice(y1,y2,y3,real(array1),[],0,0); shading interp;
+    F2=figure(2); slice(y1,y2,y3,real(array2),[],0,0); shading interp;
     drawnow;
 
     % Integrate the pressure field
@@ -97,7 +97,8 @@ pressure2(i+1)=pressure2(1);
 save('_sensors_FREE_.mat','theta','pressure1','pressure2');
 
 %% Visualize sensors
-figure(3);
+F3=figure(3);
+figPath = '../figures/';
 plot(theta,real(pressure1),'-x'); hold on
 plot(theta,real(pressure2),'-o'); hold off
 xticks(-180:30:180);
@@ -105,4 +106,8 @@ xlabel('$\theta_{Polar}$','Interpreter','latex','Fontsize',20);
 ylabel('SPL (arbitrary dB)','Interpreter','latex','Fontsize',20); 
 title('Free; M=0.6; St=0.2','Interpreter','latex','Fontsize',20);
 legend({'$\partial^2 T_{xx}/\partial x^2$','$\partial^2 G_o/\partial x^2$'},...
-    'location','best','Interpreter','latex','Fontsize',20)
+    'location','best','Interpreter','latex','Fontsize',20);
+
+print(F1,[figPath,'pressureField_FREE_method1'],'-dpng');
+print(F2,[figPath,'pressureField_FREE_method2'],'-dpng');
+print(F3,[figPath,'pressureField_FREE_compare'],'-dpng');
